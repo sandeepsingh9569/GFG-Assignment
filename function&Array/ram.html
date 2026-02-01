@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Functions & Arrays Assignment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin-top: 80px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 30px;
+            box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Student List</h1>
+
+    <button onclick="showStudents()">Show Students</button>
+
+    <ul id="studentList"></ul>
+
+    <h3>Search Student</h3>
+    <input type="text" id="searchName" placeholder="Enter name">
+    <button onclick="searchStudent()">Search</button>
+
+    <p id="result"></p>
+    </div>
+
+    <script>
+       
+        let students = ["Mahima", "Pranjal", "Neha", "Sakshi", "Rahul"];
+
+        //sabhi students ko display karne ke liye function
+        function showStudents() {
+            let list = document.getElementById("studentList");
+            list.innerHTML = "";
+
+            for (let i = 0; i < students.length; i++) {
+                let li = document.createElement("li");
+                li.innerText = students[i];
+                list.appendChild(li);
+            }
+        }
+        //student ko search karne ke liye function
+        function searchStudent() {
+            let name = document.getElementById("searchName").value;
+            let result = document.getElementById("result");
+
+            if (students.includes(name)) {
+                result.innerText = name + " is found in the list.";
+            } else {
+                result.innerText = name + " is not found in the list.";
+            }
+        }
+    </script>
+
+</body>
+</html>
